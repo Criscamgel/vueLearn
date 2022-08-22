@@ -1,9 +1,18 @@
 <script lang="ts" src="./MapView.ts" />
 
 <template>
-    <div class="container">
-        <h1>MapView</h1>
-    </div>
+        <div v-if="!isUserLocationReady" class="loading-map d-flex justify-content-center align-items-center">
+            <div class="text-center">
+                <h3> Espere por favor </h3>
+                <span> Localizando ... </span>
+            </div>
+        </div>
+
+        <div
+          v-show="isUserLocationReady"
+          class="map-container"
+          ref="mapElement" 
+          />
 </template>
 
 <style lang="scss" scoped>
