@@ -5,8 +5,4 @@
     src="./assets/logo.png"
     alt="Vue Logo">
 </template>
-
-
-<style lang="scss">
-  @import './App.scss';
-</style>
+<style lang="scss" src="./App.scss" />

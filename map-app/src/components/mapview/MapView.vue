@@ -11,10 +11,8 @@
         <div
           v-show="isUserLocationReady"
           class="map-container"
-          ref="mapElement" 
-          />
+          ref="mapElement"
+        />
 </template>
 
-<style lang="scss" scoped>
-    @import './MapView.scss';
-</style>
+<style lang="scss" src="./MapView.scss" scoped />

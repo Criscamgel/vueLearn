@@ -5,14 +5,14 @@ import { useMapStore } from '@/composables';
 
 export default defineComponent({
     name: 'MapView',
-    setup() {
-
-        const mapElement = ref<HTMLDivElement>();
+    setup() {       
+        const mapElement = ref();        
         const { userLocation, isUserLocationReady } = usePlaceStore();
         const { setMap } = useMapStore();
 
         const initMap = async () => {
-            if( !mapElement.value ) throw new Error('Div Element no exits');
+            
+            //if( !mapElement.value ) throw new Error('Div Element no exits');
             if( !userLocation.value ) throw new Error('User location no existe');
             
             await Promise.resolve();
@@ -40,20 +40,19 @@ export default defineComponent({
                 setMap( map );
         }
 
-        onMounted(() => {
-           if (isUserLocationReady.value) return initMap();
-           console.log('No tengo localizacion aun!!!');
+        onMounted(() => {       
+           if (isUserLocationReady.value) 
+            return initMap();
                        
         });
 
-        watch( isUserLocationReady, (newVal) => {
+        watch( isUserLocationReady, (newVal) => {           
             if( isUserLocationReady.value ) initMap();
         })
 
         return {
             isUserLocationReady,
-            mapElement
-            
+            mapElement            
         }
 
     }
